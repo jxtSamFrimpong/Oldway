@@ -1,6 +1,6 @@
 import unittest
 from Models.Chauffeur import Chauffeur
-from n.chrome import okay
+#from n.chrome import okay
 #from ..Models.Ruletka import Ruletka
 
 class TestAnal(unittest.TestCase):

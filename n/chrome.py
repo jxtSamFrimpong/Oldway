@@ -1,2 +1,0 @@
-def okay():
-    return 'ankaaa'
