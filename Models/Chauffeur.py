@@ -154,15 +154,21 @@ class Chauffeur:
     def collectData(self):
         try:
             self.mainTemp = []
-            #time.sleep(1)
+            time.sleep(7)
             try:
                 WebDriverWait(self.driver, 2, poll_frequency=1,
                           ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException,
                                               NoSuchElementException]).until(
-                EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div[2]/div/div/div[2]/div/div[5]/div[2]/div/div/div/div[2]/div')))
+                EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div[2]/div/div/div[3]/div[1]/div/div[2]/div')))
                 print('data row present')
             except Exception as e:
                 print('except',e)
+
+            try:
+                self.driver.find_elements(by=By.CLASS_NAME, value='value--877c6')
+                #print()
+            except:
+                print('driver couldn\'t find numbers')
             soup = BeautifulSoup(self.driver.page_source, 'lxml')
             k = soup.findAll('div', {'data-role': 'recent-number'})
             #print(len(k))

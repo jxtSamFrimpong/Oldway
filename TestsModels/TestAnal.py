@@ -1,9 +1,7 @@
-from ..Models.Chauffeur import Chauffeur
-
 import unittest
 
-class TestChauffeur(unittest.TestCase):
-
+class TestAnal(unittest.TestCase):
+    #ruletka
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
 
@@ -17,6 +15,3 @@ class TestChauffeur(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
-
-if __name__ == '__main__':
-    unittest.main()
