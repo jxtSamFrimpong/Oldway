@@ -39,10 +39,14 @@ class Chauffeur:
         self.number = os.environ['NUMBER']
         self.password = os.environ['PASSWORD']
         #ChromeDriverManager().install()
-        self.driver = webdriver.Chrome(service=Service(executable_path='/Users/ewintil/PycharmProjects/Oldway/chromedriver'), options=self.chrome_options)
+
 
 
         #self.driver = webdriver.Chrome(chromedriver_autoinstaller.install(), options=)
+    def initWebDriver(self):
+        self.driver = webdriver.Chrome(
+            service=Service(executable_path='/Users/ewintil/PycharmProjects/Oldway/chromedriver'),
+            options=self.chrome_options)
 
 
     def getSite(self):
@@ -224,13 +228,13 @@ class Chauffeur:
         self.driver.close()
         self.driver.quit()
 
-if __name__=='__main__':
-    chauffeur = Chauffeur()
-    try:
-        chauffeur.loadPage()
-    except Exception as e:
-        print(e)
-    finally:
-        chauffeur.end()
+# if __name__=='__main__':
+#     chauffeur = Chauffeur()
+#     try:
+#         chauffeur.loadPage()
+#     except Exception as e:
+#         print(e)
+#     finally:
+#         chauffeur.end()
 
 
