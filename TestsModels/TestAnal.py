@@ -66,4 +66,17 @@ class TestAnal(unittest.TestCase):
         temp_and_buffer_maker_for_phasers()
         roulette.phasers() # Call function.
         captured = self.capsys.readouterr()
-        print(captured.out)
+        out = []
+        temp = ''
+        for i in captured.out:
+
+            if i.isnumeric():
+                temp+=i
+            else:
+                if temp.isnumeric():
+                    out.append(int(temp))
+                temp=''
+
+        self.assertEqual([16, 18, 20, 14, 32, 34, 36, 10, 12, 16,21,33,55], out)
+
+        #self.assertEqual([16,18,20,14,32,34,36,10,12,16,21,33,55], captured.out)
