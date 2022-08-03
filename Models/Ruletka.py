@@ -77,7 +77,11 @@ class Ruletka(Chauffeur):
 
     def updateBuffer(self):
         new_list = self.find_new_sub(self.mainTemp, self.mainBuffer)
-        self.mainBuffer = new_list + self.mainBuffer
+        try:
+            self.mainBuffer = new_list + self.mainBuffer
+        except Exception as e:
+            self.mainBuffer = self.mainTemp + self.mainBuffer
+            print(e)
         if len(new_list)>0:
             #self.toggle_RUN()
             #self.highhighlowcheck()
@@ -485,7 +489,8 @@ class Ruletka(Chauffeur):
 
             selArr.pop()
             if chkList(selArr):
-                self.alarm(num=100)
+                #TODO self.alarm(num=100)
+                pass
         def i_333_cont():
             cont(3)
         def i_444_cont():
