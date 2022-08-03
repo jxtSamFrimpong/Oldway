@@ -43,6 +43,11 @@ class TestInitializers(unittest.TestCase):
     def testRoulettte_model(self):
         self.assertIsInstance(roulette, Ruletka, 'roulette is not an instance of ruletka')
         self.assertIsInstance(roulette.roulettte_model, dict, 'roulette_model is not a dict')
+        self.assertIn('6', roulette.roulettte_model, 'ehm, this is weird')
+        self.assertNotIn('37', roulette.roulettte_model, 'again, this is weird')
+        self.assertNotIn('-5', roulette.roulettte_model, 'aint this obvious?')
+        self.assertNotIn(None, roulette.roulettte_model, 'whew')
+        self.assertRaises(TypeError, roulette.roulettte_model+5, 'i dont know what you\'re expecting')
 
 
 if __name__ == '__main__':
