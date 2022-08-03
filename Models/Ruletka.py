@@ -548,6 +548,7 @@ class Ruletka(Chauffeur):
 if __name__ == '__main__':
     spin = Ruletka()
     try:
+        spin.initWebDriver()
         spin.loadPage()
         spin.runner()
     except WebDriverException as e:

@@ -16,6 +16,7 @@ import threading
 import os
 import chromedriver_autoinstaller
 import re
+from Utils.envvar import number, password
 
 
 class Chauffeur:
@@ -35,9 +36,12 @@ class Chauffeur:
         self.chrome_options.add_argument("--disable-gpu")
         #self.chrome_options.add_argument("--headless")
         #self.chrome_options.add_argument("--window-size=375")
+        #print(self.chrome_options.arguments)
 
-        self.number = os.environ['NUMBER']
-        self.password = os.environ['PASSWORD']
+        #self.number = os.environ['NUMBER']
+        #self.password = os.environ['PASSWORD']
+        self.number = number
+        self.password = password
         #ChromeDriverManager().install()
 
 
