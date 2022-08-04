@@ -80,3 +80,12 @@ class TestAnal(unittest.TestCase):
         self.assertEqual([16, 18, 20, 14, 32, 34, 36, 10, 12, 16,21,33,55], out)
 
         #self.assertEqual([16,18,20,14,32,34,36,10,12,16,21,33,55], captured.out)
+
+    def test_what_to_Bets(self):
+        #print(roulette.what_to_Bets(para='col', num=str(25)))
+        self.assertEqual(
+            roulette.what_to_Bets(num=str(30), para='col'),
+            roulette.opps[
+                roulette.roulettte_model[str(30)][roulette.betable_parameters['col']]
+            ])
+
