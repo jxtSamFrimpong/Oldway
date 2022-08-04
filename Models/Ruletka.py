@@ -135,7 +135,7 @@ class Ruletka(Chauffeur):
                 pass
 
     def what_to_Bets(self, para, num):
-        numprops = self.roulettte_model[num][self.betable_parameters[para]]
+        numprops = self.roulettte_model[str(num)][self.betable_parameters[para]]
         return  self.opps[numprops]
 
     def search_seq_afa(self, arr, para, ext):
@@ -179,22 +179,22 @@ class Ruletka(Chauffeur):
                     #print('checked')
                     if i == 4:
                         return (True, i, str(i) + ' times of ' + str(
-                            self.roulettte_model[mainBuffer[0]][self.betable_parameters[para]]) + ' so play ' + str(
+                            self.roulettte_model[str(mainBuffer[0])][self.betable_parameters[para]]) + ' so play ' + str(
                             self.what_to_Bets(para=para, num=mainBuffer[0])), self.what_to_Bets(para=para,
                                                                                                 num=mainBuffer[0]))
 
 
                     elif i == 5:
                         return (True, i, str(i) + ' times of ' + str(
-                            self.roulettte_model[mainBuffer[0]][self.betable_parameters[para]]) + ' so play ' + str(
+                            self.roulettte_model[str(mainBuffer[0])][self.betable_parameters[para]]) + ' so play ' + str(
                             self.what_to_Bets(para=para, num=mainBuffer[0])), self.what_to_Bets(para=para,
                                                                                                 num=mainBuffer[0]))
 
 
                     elif i == 6:
-                        self.alarm(num=8)
+                        #self.alarm(num=8)
                         return (True, i, str(i) + ' times of ' + str(
-                            self.roulettte_model[mainBuffer[0]][self.betable_parameters[para]]) + ' so play ' + str(
+                            self.roulettte_model[str(mainBuffer[0])][self.betable_parameters[para]]) + ' so play ' + str(
                             self.what_to_Bets(para=para, num=mainBuffer[0])), self.what_to_Bets(para=para,
                                                                                                 num=mainBuffer[0]))
 
@@ -205,16 +205,16 @@ class Ruletka(Chauffeur):
                         # print('get ready to bet', '\n'+str(self.what_to_Bets(para=para,num=mainBuffer[0])).capitalize())
                         #self.alarm(num=8)
                         return (True, i, str(i) + ' times of ' + str(
-                            self.roulettte_model[mainBuffer[0]][self.betable_parameters[para]]) + ' so play ' + str(
+                            self.roulettte_model[str(mainBuffer[0])][self.betable_parameters[para]]) + ' so play ' + str(
                             self.what_to_Bets(para=para, num=mainBuffer[0])), self.what_to_Bets(para=para,
                                                                                                 num=mainBuffer[0]))
 
                     elif i == 8:
                         # print('\nbet now!!!!', para, 'has played', i, 'times')
                         # print('Play', str(self.what_to_Bets(para=para,num=mainBuffer[0])).capitalize(), 'NOW!!!')
-                        self.alarm(num=8)
+                        #self.alarm(num=8)
                         return (True, i, str(i) + ' times of ' + str(
-                            self.roulettte_model[mainBuffer[0]][self.betable_parameters[para]]) + ' so play ' + str(
+                            self.roulettte_model[str(mainBuffer[0])][self.betable_parameters[para]]) + ' so play ' + str(
                             self.what_to_Bets(para=para, num=mainBuffer[0])), self.what_to_Bets(para=para,
                                                                                                 num=mainBuffer[0]))
 
