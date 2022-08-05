@@ -336,7 +336,8 @@ class Ruletka(Chauffeur):
                 if len(f_read) == 0:
                     f_read = '0'
                 f_read = int(str(f_read))
-            except [ValueError, TypeError, AttributeError, ArithmeticError] as e:
+            #except [ValueError, TypeError, AttributeError, ArithmeticError] as e:
+            except Exception as e:
                 print(e)
             f.close()
             if toggleInt > f_read:

@@ -113,3 +113,52 @@ class TestAnal(unittest.TestCase):
                                       buffer=[12, 19, 18, 31, 2, 21, 12,33,34,13,10,11,16,17,18,19,6,35,36])
         self.assertTrue(roulette.search_seq_ATO(mainBuffer=roulette.mainBuffer)[0])
 
+    def test_find_sub_list(self):
+        res  = roulette.find_sub_list(sl=[1,2,3,4], l=[-1,-5,0,1,2,3,4,5,8,4])
+        if type(res) is tuple:
+            self.assertTrue(res[0])
+        else:
+            self.assertTrue(res)
+
+    def test_find_new_sub(self):
+        res  = roulette.find_new_sub(sl=[1,2,3,4], l=[-1,-5,0,1,2,3,4,5,8,4])
+        self.assertIsNotNone(len(res))
+
+    def test_toggleCheck(self):
+        #TODO check ruletka implementation
+        temp_and_buffer_maker_general(temp=[12, 19, 18, 30, 1, 20, 12],
+                                      buffer=[12, 19, 18, 30, 1, 20, 12, 33, 16, 24, 8, 29, 6, 20, 13, 31, 14, 32, 15,
+                                              21])
+        self.assertTrue(not roulette.toggleCheck(buffer=roulette.mainBuffer, para='lov', ext=5))
+
+        self.assertTrue(not roulette.toggleCheck(buffer=roulette.mainBuffer, para='div', ext=4))
+
+    def test_SUB_toggle_Chk(self):
+        #TODO check ruletka implementation
+        temp_and_buffer_maker_general(temp=[12, 19, 18, 30, 1, 20, 12],
+                                      buffer=[12, 19, 18, 30, 1, 20, 12, 33, 16, 24, 8, 29, 6, 20, 13, 31, 14, 32, 15,
+                                              21])
+
+        toggles = roulette.four_toggles
+        roulette.SUB_toggle_Chk(para='lov')
+        self.assertEqual(roulette.four_toggles, toggles)#+1
+
+    def test_toggle_RUN(self):
+        #depends on sub_toggle_check
+        temp_and_buffer_maker_general(temp=[12, 19, 18, 30, 1, 20, 12],
+                                      buffer=[12, 19, 18, 30, 1, 20, 12, 33, 16, 24, 8, 29, 6, 20, 13, 31, 14, 32, 15,
+                                              21])
+        roulette.toggle_RUN()
+        captured = self.capsys.readouterr()
+        self.assertIn('col', captured.out)
+        self.assertIn('lov', captured.out)
+        self.assertIn('div', captured.out)
+
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+
