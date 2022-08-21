@@ -24,17 +24,14 @@ class Chauffeur:
         self.mainTemp = []
         self.chrome_options = Options()
 
-        self.chrome_options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        #self.chrome_options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
-        #self.chrome_options.add_argument('--no-sandbox')
-        #self.chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        #self.chrome_options.add_experimental_option('useAutomationExtension', False)
         self.chrome_options.add_argument("--remote-debugging-port=9222")
         self.chrome_options.add_argument('--disable-dev-shm-usage')
         self.chrome_options.add_argument("start-maximized")
         self.chrome_options.add_argument("--disable-extensions")
         self.chrome_options.add_argument("--disable-gpu")
-        #self.chrome_options.add_argument("--headless")
+        self.chrome_options.add_argument("--headless")
         #self.chrome_options.add_argument("--window-size=375")
         #print(self.chrome_options.arguments)
 
@@ -49,7 +46,8 @@ class Chauffeur:
         #self.driver = webdriver.Chrome(chromedriver_autoinstaller.install(), options=)
     def initWebDriver(self):
         self.driver = webdriver.Chrome(
-            service=Service(executable_path='/Users/ewintil/PycharmProjects/Oldway/chromedriver'),
+            # service=Service(executable_path='/Users/ewintil/PycharmProjects/Oldway/chromedriver'),
+            service=Service(executable_path=chromedriver_autoinstaller.install()),
             options=self.chrome_options)
 
 
