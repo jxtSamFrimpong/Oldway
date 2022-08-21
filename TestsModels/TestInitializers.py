@@ -1,7 +1,7 @@
 import unittest
-from Models.Chauffeur import Chauffeur
-from Utils.envvar import number, password
-from Models.Ruletka import Ruletka
+from Chauffeur import Chauffeur
+from envvar import number, password
+from Ruletka import Ruletka
 
 likklechauffeur = Chauffeur()
 roulette = Ruletka()

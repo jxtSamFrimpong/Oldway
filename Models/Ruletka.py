@@ -1,4 +1,4 @@
-from Models.Chauffeur import Chauffeur
+from Chauffeur import Chauffeur
 import time
 from selenium.common.exceptions import WebDriverException
 

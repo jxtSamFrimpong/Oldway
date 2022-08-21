@@ -1,7 +1,7 @@
 import unittest
 from Models.Chauffeur import Chauffeur
 from Utils.envvar import number, password
-from Models.Ruletka import Ruletka
+from Ruletka import Ruletka
 from random import randint
 import io
 import sys

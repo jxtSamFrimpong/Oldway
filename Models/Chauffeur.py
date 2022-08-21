@@ -16,7 +16,7 @@ import threading
 import os
 import chromedriver_autoinstaller
 import re
-from Utils.envvar import number, password
+from envvar import number, password
 
 
 class Chauffeur:
@@ -41,6 +41,10 @@ class Chauffeur:
         self.password = password
         #ChromeDriverManager().install()
 
+        self.driver = webdriver.Chrome(
+            # service=Service(executable_path='/Users/ewintil/PycharmProjects/Oldway/chromedriver'),
+            service=Service(executable_path=chromedriver_autoinstaller.install()),
+            options=self.chrome_options)
 
 
         #self.driver = webdriver.Chrome(chromedriver_autoinstaller.install(), options=)

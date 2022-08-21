@@ -1,4 +1,12 @@
-FROM python:3.8
+FROM ubuntu:latest
+
+RUN apt update
+RUN apt install python3 -y
+RUN apt install python3-pip -y
+RUN pip3 install virtualenv
+
+#install wget
+RUN apt install wget -y
 
 # Adding trusting keys to apt for repositories
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -13,24 +21,38 @@ RUN apt-get -y update
 RUN apt-get install -y google-chrome-stable
 
 # Installing Unzip
-RUN apt-get install -yqq unzip
+#RUN apt-get install -yqq unzip
+
+#installing CURL
+#RUN apt install curl
+
+#update
+RUN apt-get -y update
 
 # Download the Chrome Driver
-RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`
-curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE
-`/chromedriver_linux64.zip
+#RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`
+#curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE
+#`/chromedriver_linux64.zip
 
 # Unzip the Chrome Driver into /usr/local/bin directory
-RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+#RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
 # Set display port as an environment variable
-ENV DISPLAY=:99
+#ENV DISPLAY=:99
 
 COPY . /app
 WORKDIR /app
+#RUN export export PYTHONPATH=$(pwd)
+CMD ["python3", "main.py"]
 
-RUN pip install --upgrade pip
+RUN virtualenv venv
+RUN bash -c "source venv/bin/activate"
+RUN pip3 install --upgrade pip
+RUN pip3 install selenium
+RUN pip3 install pytest
+RUN pip3 install beautifulsoup4
+RUN pip3 install chromedriver-autoinstaller
+RUN pip3 install webdriver-manager
 
-RUN pip install -r requirements.txt
 
-CMD ["python3", ".Models/app.py"]
+CMD ["python3", "Models/app.py"]
