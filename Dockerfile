@@ -9,16 +9,23 @@ RUN pip3 install virtualenv
 RUN apt install wget -y
 
 # Adding trusting keys to apt for repositories
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+#RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+
+# #adding snapd to ubuntu
+# RUN apt install snapd
+
+# #adding google-chrome to ubuntu from snap
 
 # Adding Google Chrome to the repositories
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+#RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
 # Updating apt to see and install Google Chrome
 RUN apt-get -y update
 
 # Magic happens
-RUN apt-get install -y google-chrome-stable
+#RUN apt-get install -y google-chrome-stable
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb -y
 
 # Installing Unzip
 #RUN apt-get install -yqq unzip
