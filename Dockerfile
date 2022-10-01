@@ -5,6 +5,8 @@ RUN apt install python3 -y
 RUN apt install python3-pip -y
 RUN pip3 install virtualenv
 
+#stack over flow new command
+RUN apt -f install -y
 #install wget
 RUN apt install wget -y
 
@@ -24,10 +26,10 @@ RUN apt-get -y update
 
 # Magic happens
 #RUN apt-get install -y google-chrome-stable
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt-get -y update
-RUN apt-get -y install dpkg
-RUN dpkg -i ./google-chrome-stable_current_amd64.deb
+RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#RUN apt-get -y update
+#RUN apt-get -y install dpkg
+RUN apt-get install ./google-chrome-stable_current_amd64.deb -y
 
 # Installing Unzip
 #RUN apt-get install -yqq unzip
