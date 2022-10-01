@@ -25,7 +25,9 @@ RUN apt-get -y update
 # Magic happens
 #RUN apt-get install -y google-chrome-stable
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN sudo dpkg -i google-chrome-stable_current_amd64.deb
+RUN apt-get -y update
+RUN apt-get -y install dpkg
+RUN dpkg -i google-chrome-stable_current_amd64.deb
 
 # Installing Unzip
 #RUN apt-get install -yqq unzip
