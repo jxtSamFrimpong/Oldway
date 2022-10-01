@@ -59,11 +59,12 @@ CMD ["python3", "main.py"]
 RUN virtualenv venv
 RUN bash -c "source venv/bin/activate"
 RUN pip3 install --upgrade pip
-RUN pip3 install selenium
-RUN pip3 install pytest
-RUN pip3 install beautifulsoup4
-RUN pip3 install chromedriver-autoinstaller
-RUN pip3 install webdriver-manager
+# RUN pip3 install selenium
+# RUN pip3 install pytest
+# RUN pip3 install beautifulsoup4
+# RUN pip3 install chromedriver-autoinstaller
+# RUN pip3 install webdriver-manager
+RUN pip3 install -r requirements.txt
 
 
 CMD ["python3", "Models/app.py"]
