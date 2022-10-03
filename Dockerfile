@@ -66,5 +66,9 @@ RUN pip3 install --upgrade pip
 # RUN pip3 install webdriver-manager
 RUN pip3 install -r requirements.txt
 
+RUN google-chrome
+
+RUN pidof google-chrome
+
 
 CMD ["python3", "Models/app.py"]
