@@ -14,9 +14,10 @@ if __name__ == '__main__':
         spin.end()
     except TypeError as e:
         print(e)
-        spin.alarm(num=100)
+        #spin.alarm(num=100)
     except ValueError:
-        spin.alarm(num=100)
+        #spin.alarm(num=100)
+        pass
     finally:
         a = time.localtime()
         print('Stopped at', a[3], ':', a[4], ':', a[5])
