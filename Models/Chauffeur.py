@@ -32,7 +32,7 @@ class Chauffeur:
         #self.chrome_options.add_argument("--disable-extensions")
         #self.chrome_options.add_argument("--disable-gpu")
         self.chrome_options.add_argument("--headless")
-        self.chrome_options.add_argument("--window-size=375")
+        #self.chrome_options.add_argument("--window-size=375")
         #print(self.chrome_options.arguments)
 
         #self.number = os.environ['NUMBER']
